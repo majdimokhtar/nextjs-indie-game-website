@@ -1,6 +1,6 @@
-import NavBar from '../components/NavBar';
-import { exo2, orbitron } from './fonts';
-import './globals.css';
+import NavBar from "../components/NavBar"
+import { exo2, orbitron } from "./fonts"
+import "./globals.css"
 
 export default function RootLayout({ children }) {
   return (
@@ -9,17 +9,18 @@ export default function RootLayout({ children }) {
         <header>
           <NavBar />
         </header>
-        <main className="grow py-3">
-          {children}
-        </main>
-        <footer className="border-t py-3 text-center text-xs">
-          Game data and images courtesy of{' '}
-          <a href="https://rawg.io/" target="_blank"
-            className="text-orange-800 hover:underline">
+        <main className="grow py-3">{children}</main>
+        <footer className="border-t py-3 text-center text-xs text-slate-500">
+          Game data and images courtesy of{" "}
+          <a
+            href="https://rawg.io/"
+            target="_blank"
+            className="text-orange-800 hover:underline"
+          >
             RAWG
           </a>
         </footer>
       </body>
     </html>
-  );
+  )
 }
