@@ -1,9 +1,7 @@
 import Link from "next/link"
 import Heading from "@/components/Heading"
 
-export const metadata = {
-  title: "Reviews",
-}
+
 
 export default async function HomePage() {
   console.log("[HomePage] rendering")
