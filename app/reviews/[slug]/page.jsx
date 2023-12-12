@@ -1,6 +1,7 @@
 import Heading from "@/components/Heading"
 import ShareLinkBtn from "@/components/ShareLinkBtn"
 import { getReview, getSlugs } from "@/lib/review"
+import Image from "next/image"
 
 export async function generateMetadata({ params: { slug } }) {
   const review = await getReview(slug)
@@ -23,7 +24,7 @@ export default async function ReviewPage({ params: { slug } }) {
         <p className="italic pb-2">{review.date} </p>
         <ShareLinkBtn />
       </div>
-      <img
+      <Image
         src={review.image}
         alt=""
         width="640"
