@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
+    "flowbite-react": "^0.7.2",
     "gray-matter": "^4.0.3",
     "marked": "^9.1.6",
     "next": "^14.0.0",
