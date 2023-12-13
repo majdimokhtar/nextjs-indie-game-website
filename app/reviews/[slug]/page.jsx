@@ -2,23 +2,32 @@ import Heading from "@/components/Heading"
 import ShareLinkBtn from "@/components/ShareLinkBtn"
 import { getReview, getSlugs } from "@/lib/review"
 import Image from "next/image"
+import { notFound } from "next/navigation"
 
-export const dynamic = "force-dynamic"
+// export const dynamic = "force-dynamic"
+
+// export const revalidate = 30
+
+export async function generateStaticParams() {
+  const slugs = await getSlugs()
+  return slugs.map((slug) => ({ slug }))
+}
 
 export async function generateMetadata({ params: { slug } }) {
   const review = await getReview(slug)
+  if (!review) {
+    return notFound()
+  }
   return {
     title: review.title,
   }
 }
 
-// export async function generateStaticParams() {
-//   const slugs = await getSlugs()
-//   return slugs.map((slug) => ({ slug }))
-// }
-
 export default async function ReviewPage({ params: { slug } }) {
   const review = await getReview(slug)
+  if (!review) {
+    return notFound()
+  }
   return (
     <>
       <Heading>{review.title} </Heading>
