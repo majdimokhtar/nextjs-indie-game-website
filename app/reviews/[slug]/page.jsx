@@ -3,6 +3,8 @@ import ShareLinkBtn from "@/components/ShareLinkBtn"
 import { getReview, getSlugs } from "@/lib/review"
 import Image from "next/image"
 
+export const dynamic = "force-dynamic"
+
 export async function generateMetadata({ params: { slug } }) {
   const review = await getReview(slug)
   return {
@@ -10,16 +12,17 @@ export async function generateMetadata({ params: { slug } }) {
   }
 }
 
-export async function generateStaticParams() {
-  const slugs = await getSlugs()
-  return slugs.map((slug) => ({ slug }))
-}
+// export async function generateStaticParams() {
+//   const slugs = await getSlugs()
+//   return slugs.map((slug) => ({ slug }))
+// }
 
 export default async function ReviewPage({ params: { slug } }) {
   const review = await getReview(slug)
   return (
     <>
       <Heading>{review.title} </Heading>
+      <p className="font-semibold pb-3">{review.subtitle}</p>
       <div className="flex gap-3 items-baseline">
         <p className="italic pb-2">{review.date} </p>
         <ShareLinkBtn />

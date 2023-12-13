@@ -3,6 +3,8 @@ import Heading from "@/components/Heading"
 import { getReviews } from "@/lib/review"
 import Image from "next/image"
 
+export const dynamic = "force-dynamic"
+
 export const metadata = {
   title: "Reviews",
 }
@@ -14,7 +16,7 @@ export default async function ReviewsPage() {
     <>
       <Heading>Reviews</Heading>
       <ul className="flex flex-row gap-3 flex-wrap">
-        {reviews.map((review) => {
+        {reviews.map((review, index) => {
           return (
             <li
               key={review.slug}
@@ -27,6 +29,7 @@ export default async function ReviewsPage() {
                   width="320"
                   height="180"
                   className="rounded-t"
+                  priority={index === 0}
                 />
                 <h2 className="font-orbitron font-semibold py-1 text-center">
                   {review.title}
