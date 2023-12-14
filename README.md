@@ -1,4 +1,4 @@
-# Indie Gamer - Next.js Strapi App
+# Indie Gamer - Next.js 13 Strapi App
 
 Welcome to Indie Gamer, your ultimate destination for indie gaming! This repository contains the source code for the Indie Gamer website, a Next.js app powered by Strapi CMS.
 

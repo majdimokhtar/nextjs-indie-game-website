@@ -13,7 +13,7 @@ export default function NavBar() {
             </Link>
           </li>
           <li className="ml-auto">
-            <Link href="/reviews" passHref>
+            <Link href="/reviews?page=1" passHref>
               <button className="text-white hover:text-orange-500 focus:outline-none mr-4">
                 Reviews
               </button>
